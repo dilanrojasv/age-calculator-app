@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/public/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <main>
+      <section class="age-calculator">
+        
+        <div class="age-calculator-wrapper container">
+
+          <div class="date-picker">
+            <form action="pick-date" id="date-picker-form">
+              <div class="pickers-wrapper">
+                <div class="flow" style="--flow-space: .3em;">
+                  <h6 class="day">Day</h6>
+                  <input  id="day-input" type="number" min="1" max="31" required placeholder="DD">
+                  <p id="day-error"></p>
+                </div>
+                <div class="flow" style="--flow-space: .3em;">
+                  <h6 class="month">Month</h6>
+                  <input id="month-input" type="number" min="1" max="12" required placeholder="MM">
+                  <p id="month-error"></p>
+                </div>
+                <div class="flow" style="--flow-space: .3em;">
+                  <h6 class="year">Year</h6>
+                  <input id="year-input" type="number" min="1" max="2024" required placeholder="YYYY">
+                  <p id="year-error"></p>
+                </div>
+              </div>
+              <div class="submit-wrapper">
+                <button type="submit" id="calc-btn">
+                  <img src="/public/icon-arrow.svg" alt="Sumbit Date" width="36" height="32">
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="age-wrapper">
+            <div class="years">
+              <h1 id="calc-years">--</h1>
+              <h2>years</h2>
+            </div>
+            <div class="months">
+              <h1 id="calc-months">--</h1>
+              <h2>months</h2>
+            </div>
+            <div class="days">
+              <h1 id="calc-days">--</h1>
+              <h2>days</h2>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a target="_blank" href="https://github.com/dilanrojas">Dilan Rojas</a>.
+        </div>
+
+      </section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+
+<style>
+  .attribution {
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    z-index: 10;
+  }
+  .attribution a {color: var(--clr-purple); }
+</style>

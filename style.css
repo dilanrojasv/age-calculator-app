@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-off-white: hsl(0, 0%, 94%);
+  --clr-light-grey: hsl(0, 0%, 86%);
+  --clr-smokey-grey: hsl(0, 1%, 44%);
+  --clr-off-black: hsl(0, 0%, 8%);
+
+  --clr-purple: hsl(259, 100%, 65%);
+  --clr-light-red: hsl(0, 100%, 67%);
+  --clr-error: hsl(357, 100%, 62%); 
+
+  --fs-200: .48em;
+  --fs-300: .5em;
+  --fs-400: 1em;
+  --fs-500: 1.1em;
+  --fs-600: 1.3em;
+  --fs-700: 1.5em;
+  --fs-800: 2.2em;
+  --fs-900: 2.8em;
+
+  --fw-regular: 400;
+  --fw-semibold: 700;
+  --fw-bold: 800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--fw-regular);
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--clr-off-black)
+}
+
+@media(max-width: 700px) {
+  html {
+    font-size: 16px;
+  }
+
+  :root {
+    --fs-800: 1.8em;
+  }
+}
+
+/* Contents */
+
+.age-calculator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-off-white);
+  min-height: 100dvh;
+  min-width: 100%;
+}
+
+.age-calculator-wrapper {
+  display: grid;
+  background-color: var(--clr-white);
+  padding: 2em;
+  border-radius: 20px;
+  border-bottom-right-radius: 25%;
+}
+
+::placeholder {
+  font-weight: var(--fw-bold);
+}
+
+.date-picker form {
+  display: grid;
+}
+
+.pickers-wrapper h6 {
+  letter-spacing: .3em;
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  color: var(--clr-smokey-grey)
+}
+
+.pickers-wrapper {
+  display: flex;
+  gap: 1em;
+}
+
+/* Error styling */
+.date-picker form p {
+  padding-top: .2em;
+  color: var(--clr-error);
+  font-size: var(--fs-200);
+  font-style: italic;
+  opacity: .8;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:where([type="number"]) {
+  height: 60px;
+  width: 130px;
+  outline: 0;
+  border: 1px solid var(--clr-light-grey);
+  border-radius: 5px;
+  padding: .7em;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-bold);
+}
+
+input:where([type="number"])[invalid] {
+  border: 1px solid var(--clr-error);
+}
+
+.submit-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 23em;
+  position: relative
+}
+
+@media(max-width: 700px) {
+  input:where([type="number"]) {
+    max-width: 80px;
+  }
+  .submit-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+  .date-picker form {
+    gap: 1.5em;
+  }
+  .age-calculator-wrapper {
+    gap: 1.5em;
+  }
+  .submit-wrapper button {
+    padding: 1em!important;
+  }
+  .submit-wrapper button img {
+    width: 28px;
+    height: 24px;
+  }
+}
+
+.submit-wrapper::before {
+  content: "";
+  position: absolute;
+  min-height: 1px;
+  width: 100%;
+  background-color: var(--clr-light-grey);
+  z-index: 10;
+}
+
+.submit-wrapper hr {
+  border: 1px solid var(--clr-light-grey)
+}
+
+.submit-wrapper button {
+  border: 0;
+  border-radius: 100%;
+  padding: 1.5em;
+  background-color: var(--clr-purple);
+  transition: background-color .15s ease;
+  z-index: 20;
+}
+
+.submit-wrapper button:hover {
+  background-color: var(--clr-off-black);
+}
+
+/* Age calculation */
+
+.age-wrapper > div {
+  display: flex;
+  font-size: var(--fs-800);
+  font-weight: var(--fw-bold);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.age-wrapper h1 {
+  color: var(--clr-purple);
+  letter-spacing: .1em;
+}
+
+/* Utility classes */
+.flow > * + * {
+  margin-top: var(--flow-space, 1.3em);
+}
+
+.container {
+  --max-width: 1440px;
+  --padding: 1rem;
+  --max-height: 100dvh;
+
+  max-height: min(var(--max-height), 100% - (var(--padding) * 2));
+  max-width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+  overflow: auto;
+  scrollbar-width: none;
+}
